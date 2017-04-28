@@ -3,6 +3,7 @@ import store from '../store'
 
 export function getData() {
   axios.get('https://api.github.com/users/Cheddarman').then(function (resp) {
+  	console.log('res', resp)
   	store.dispatch({
       type: 'GET_DATA',
       user: resp.data
