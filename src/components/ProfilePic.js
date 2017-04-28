@@ -1,10 +1,32 @@
 import React from 'react'
+import store from '../store'
+import {accountData} from '../reducers/ghReducer'
 
-const Avatar = React.createClass({
+class Avatar extends React.Component {
+  
+  constructor() {
+    super()
+      this.state = {
+        accountData: ''
+      }
+  }
+
+  componentWillMount() {
+    store.subscribe(() => {
+      const appState = store.getState()
+      const userData = appState.userdata
+
+      this.setState( {
+        accountData: userData      
+      })
+    })
+  }
+
   render() {
+    console.log(this.state.accountData)
     return(
-    	<div createClass='AvatarBit'>
-        <img />
+      <div className='AvatarBit'>
+        <img src={this.state.accountData.avatar_url}/>
         <h3>Owner name</h3>
         <h4>username</h4>
         <button />
@@ -12,6 +34,5 @@ const Avatar = React.createClass({
       </div>
     )
   }
-})
-
+}
 export default Avatar

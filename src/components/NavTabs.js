@@ -4,11 +4,13 @@ const Tabs = React.createClass({
   render() {
     return(
     	<div className='NavTabs'>
-        <a>Overview</a>
-        <a>Repositories</a>
-        <a>Stars</a>
-        <a>Followers</a>
-        <a>Following</a>
+        <ul>
+          <li>Overview</li>
+          <li>Repositories</li>
+          <li>Stars</li>
+          <li>Followers</li>
+          <li>Following</li>
+        </ul>
       </div>
     )
   }
